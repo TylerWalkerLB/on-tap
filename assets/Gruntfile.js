@@ -8,25 +8,6 @@ module.exports = function(grunt) {
         mainJSFile    : '<%= jsDir %>/<%= pkg.name %>.js',
         
         less: {
-            dev: {
-                options: {
-                    compress: false,
-                    sourceMap: true,
-                    sourceMapFilename: '<%= styleDir %>/<%= pkg.name %>.css.map',
-                    sourceMapURL: '<%= pkg.name %>.css.map'
-                },
-                files: {
-                    '<%= mainStyleFile %>': [
-
-                        // Admin styles
-                        'less/admin.less',
-
-                        // Presentation styles
-                        'less/on-tap.less'
-                    ]
-                }
-            },
-
             dist: {
                 options: {
                     compress: true,
@@ -42,17 +23,6 @@ module.exports = function(grunt) {
         },
 
         postcss: {
-            dev: {
-                options: {
-                    map: true,
-                    processors: [
-                        require('autoprefixer')({
-                            browsers: ['last 2 versions', 'ie 9', 'ie 10']
-                        })
-                    ]
-                },
-                src: '<%= styleDir %>/*.css'
-            },
             dist: {
                 options: {
                     map: false,
@@ -68,16 +38,6 @@ module.exports = function(grunt) {
         },
 
         uglify: {
-            dev: {
-                options: {
-                    sourceMap: true
-                },
-                files: {
-                    '<%= mainJSFile %>': [
-                        'js/onTapMap.js'
-                    ]
-                }
-            },
             dist: {
                 files: {
                     '<%= mainJSFile %>': [
@@ -96,8 +56,7 @@ module.exports = function(grunt) {
                     'gruntfile.js'
                 ],
                 tasks: [
-                    'less:devAdmin',
-                    'less:devPres'
+                    'less:dist'
                 ]
             },
             scripts: {
@@ -106,7 +65,7 @@ module.exports = function(grunt) {
                     'gruntfile.js'
                 ],
                 tasks: [
-                    'uglify:dev'
+                    'uglify:dist'
                 ]
             }
         }
@@ -115,10 +74,9 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-watch');
 
-    grunt.registerTask('refresh', ['less:dev', 'postcss:dev', 'uglify:dev']);
-    grunt.registerTask('dev', ['less:dev', 'postcss:dev', 'uglify:dev']);
+    grunt.registerTask('refresh', ['less:dist', 'postcss:dist', 'uglify:dist']);
     grunt.registerTask('dist', ['less:dist', 'postcss:dist', 'uglify:dist']);
-    grunt.registerTask('default', ['less:dev', 'uglify:dev']);
+    grunt.registerTask('default', ['less:dist', 'postcss:dist', 'uglify:dist']);
 
     require('load-grunt-tasks')(grunt);
 };
