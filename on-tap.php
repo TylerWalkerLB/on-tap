@@ -30,7 +30,7 @@ add_action('wp_enqueue_scripts','ontap_scripts');
 
 //This function will add scripts and css for the admin pages
 function ontap_admin_scripts($hook) {
-    //wp_enqueue_style( 'ot-admin-styles', plugin_dir_url(__FILE__).'assets/css/admin.css');
+    wp_enqueue_style( 'ot-admin-styles', plugin_dir_url(__FILE__).'assets/dist/css/ontap.css');
 }
 add_action('admin_enqueue_scripts','ontap_admin_scripts');
 

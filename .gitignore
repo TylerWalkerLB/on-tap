@@ -29,6 +29,7 @@
 *.iws
 *.sample
 /assets/node_modules/
+/assets/dist/*
 
 ## Plugin-specific files:
 

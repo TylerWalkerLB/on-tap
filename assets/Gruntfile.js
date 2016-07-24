@@ -2,13 +2,13 @@ module.exports = function(grunt) {
 
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
-        styleDir      : '../dist/css',
+        styleDir      : 'dist/css',
         mainStyleFile : '<%= styleDir %>/<%= pkg.name %>.css',
-        jsDir         : '../dist/js',
+        jsDir         : 'dist/js',
         mainJSFile    : '<%= jsDir %>/<%= pkg.name %>.js',
         
         less: {
-            devAdmin: {
+            dev: {
                 options: {
                     compress: false,
                     sourceMap: true,
@@ -17,47 +17,53 @@ module.exports = function(grunt) {
                 },
                 files: {
                     '<%= mainStyleFile %>': [
-                        'less/admin.less'
-                    ]
-                }
-            },
-            
-            devPres: {
-                options: {
-                    compress: false,
-                    sourceMap: true,
-                    sourceMapFilename: '<%= styleDir %>/<%= pkg.name %>.css.map',
-                    sourceMapURL: '<%= pkg.name %>.css.map'
-                },
-                files: {
-                    '<%= mainStyleFile %>': [
+
+                        // Admin styles
+                        'less/admin.less',
+
+                        // Presentation styles
                         'less/on-tap.less'
                     ]
                 }
             },
 
-            distAdmin: {
+            dist: {
                 options: {
                     compress: true,
                     sourceMap: false
                 },
                 files: {
                     '<%= mainStyleFile %>': [
-                        'less/admin.less'
-                    ]
-                }
-            },
-
-            distPres: {
-                options: {
-                    compress: true,
-                    sourceMap: false
-                },
-                files: {
-                    '<%= mainStyleFile %>': [
+                        'less/admin.less',
                         'less/on-tap.less'
                     ]
                 }
+            }
+        },
+
+        postcss: {
+            dev: {
+                options: {
+                    map: true,
+                    processors: [
+                        require('autoprefixer')({
+                            browsers: ['last 2 versions', 'ie 9', 'ie 10']
+                        })
+                    ]
+                },
+                src: '<%= styleDir %>/*.css'
+            },
+            dist: {
+                options: {
+                    map: false,
+                    processors: [
+                        require('autoprefixer')({
+                            browsers: ['last 2 versions', 'ie 9', 'ie 10']
+                        }),
+                        require('cssnano')()
+                    ]
+                },
+                src: '<%= styleDir %>/*.css'
             }
         },
 
@@ -68,14 +74,14 @@ module.exports = function(grunt) {
                 },
                 files: {
                     '<%= mainJSFile %>': [
-
+                        'js/onTapMap.js'
                     ]
                 }
             },
             dist: {
                 files: {
                     '<%= mainJSFile %>': [
-
+                        'js/onTapMap.js'
                     ]
                 }
             }
@@ -90,8 +96,8 @@ module.exports = function(grunt) {
                     'gruntfile.js'
                 ],
                 tasks: [
-                    'less:devMain',
-                    'postcss:dev'
+                    'less:devAdmin',
+                    'less:devPres'
                 ]
             },
             scripts: {
@@ -107,13 +113,12 @@ module.exports = function(grunt) {
     });
 
     grunt.loadNpmTasks('grunt-contrib-uglify');
-    grunt.loadNpmTasks('grunt-contrib-jshint');
-    grunt.loadNpmTasks('grunt-contrib-qunit');
     grunt.loadNpmTasks('grunt-contrib-watch');
 
-    grunt.registerTask('dev', ['less:devAdmin', 'less:devPres', 'uglify:dev']);
-    grunt.registerTask('dist', ['less:distAdmin', 'less:distPres', 'uglify:dist']);
+    grunt.registerTask('refresh', ['less:dev', 'postcss:dev', 'uglify:dev']);
+    grunt.registerTask('dev', ['less:dev', 'postcss:dev', 'uglify:dev']);
+    grunt.registerTask('dist', ['less:dist', 'postcss:dist', 'uglify:dist']);
+    grunt.registerTask('default', ['less:dev', 'uglify:dev']);
 
-    grunt.registerTask('default', ['less:devAdmin', 'less:devPres', 'uglify:dev']);
-
+    require('load-grunt-tasks')(grunt);
 };
