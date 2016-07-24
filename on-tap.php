@@ -20,7 +20,7 @@ $ontap_dontap_version = '1.0.0';
 function ontap_scripts() {
     $googleAPIKey = 'AIzaSyDgVSO78uZ6ofVd2TzdYGwWxw-UcqsL7ck';
 
-    //wp_register_script('google-maps-api', 'https://maps.googleapis.com/maps/api/js?key=' . $googleAPIKey, array(), '1.0.0', true);
+    wp_register_script('google-maps-api', 'https://maps.googleapis.com/maps/api/js?key=' . $googleAPIKey, array(), '1.0.0', true);
     //wp_register_script('ontap-admin-form-handle',plugin_dir_url(__FILE__).'assets/js/ontap-form-handle.js', array(), '1.0.0', true);
 
 } //end drag_drop_scripts()
