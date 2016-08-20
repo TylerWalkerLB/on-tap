@@ -37,6 +37,14 @@ function ontap_admin_scripts($hook) {
 add_action('admin_enqueue_scripts','ontap_admin_scripts');
 
 
+function register_ontap_settings() {
+    //register settings
+    register_setting('ontap_settings_group','ontap_api_key');
+
+}
+//call register settings function
+add_action('admin_init','register_ontap_settings');
+
 
 //This action will add a menu page for the plugins options
 function ontapAdmin() {
