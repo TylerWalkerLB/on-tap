@@ -17,7 +17,7 @@ $ontap_dontap_version = '1.0.0';
 
 //This action will add in the correct scripts for using front-end
 function ontap_scripts() {
-    $googleAPIKey = get_option('ontap-api-key');
+    $googleAPIKey = get_option('ontap_api_key');
 
     wp_register_script('google-maps-api', 'https://maps.googleapis.com/maps/api/js?key=' . $googleAPIKey, array(), '1.0.0', true);
     wp_register_script('on-tap-map', plugin_dir_url(__FILE__).'assets/dist/js/ontap.js', array(), '1.0.0', true);
@@ -32,8 +32,8 @@ add_action('wp_enqueue_scripts','ontap_scripts');
 
 //This function will add scripts and css for the admin pages
 function ontap_admin_scripts($hook) {
-    $googleAPIKey = get_option('ontap-api-key');
-    
+    $googleAPIKey = get_option('ontap_api_key');
+
     wp_enqueue_style( 'ot-admin-styles', plugin_dir_url(__FILE__).'assets/dist/css/ontap.css');
     wp_register_script('admin-google-maps-api', 'https://maps.googleapis.com/maps/api/js?key=' . $googleAPIKey, array(), '1.0.0', true);
     wp_register_script('on-tap-admin', plugin_dir_url(__FILE__).'assets/js/onTapAdmin.js', array(), '1.0.0', true);
