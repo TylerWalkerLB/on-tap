@@ -5,9 +5,6 @@ global $ontap_dontap_version;
 
 ?>
 
-<?php settings_fields('ontap_settings_group'); ?>
-<?php do_settings_sections('ontap_settings_group'); ?>
-
 <h1 class="ot-admin__main-heading">On Tap</h1>
 <h2 class="nav-tab-wrapper" id="top-wrap">
     <a class="nav-tab nav-tab-active" href="<?php echo admin_url(); ?>admin.php?page=on-tap%2Fon-tap-admin.php">Settings</a>
@@ -16,6 +13,8 @@ global $ontap_dontap_version;
 <div class="ot-admin">
 
     <form method="post" action="options.php" id="dp-admin-form">
+        <?php settings_fields('ontap_settings_group'); ?>
+        <?php do_settings_sections('ontap_settings_group'); ?>
 
         <section class="ot-section">
             <h3 class="ot-admin__heading">Google Maps</h3>
@@ -30,7 +29,7 @@ global $ontap_dontap_version;
                 </td>
             </tr>
         </table>
-        
+
     </form>
     
 </div>
