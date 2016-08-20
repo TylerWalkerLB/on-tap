@@ -49,7 +49,7 @@ var OnTap = OnTap || {};
         Self.Vars.geocoder.geocode({ 'address': address }, function (results, status) {
             if (status == google.maps.GeocoderStatus.OK) {
                 latLng = results[0].geometry.location;
-                console.log(latLng);
+                console.log(latLng.lat);
             }
         });
 
