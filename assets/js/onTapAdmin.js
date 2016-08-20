@@ -42,14 +42,16 @@ var OnTap = OnTap || {};
         var state = Self.elementObjects.newState.val();
         var zip = Self.elementObjects.newZip.val();
 
-        var latLng;
+        var locLat;
+        var locLng;
         var address = addr1 + ' ' + addr2 + ', ' + city + ', ' + state + ' ' + zip;
         console.log(address);
 
         Self.Vars.geocoder.geocode({ 'address': address }, function (results, status) {
             if (status == google.maps.GeocoderStatus.OK) {
-                latLng = results[0].geometry.location;
-                console.log(latLng.lat);
+                locLat = results[0].geometry.location.lat();
+                locLng = results[0].geometry.location.lng();
+                console.log(locLat + ',' + locLng);
             }
         });
 
