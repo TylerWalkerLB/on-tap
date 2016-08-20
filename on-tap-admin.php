@@ -14,19 +14,23 @@ global $ontap_dontap_version;
 </h2>
 
 <div class="ot-admin">
-    
-    <section class="ot-section">
-        <h3 class="ot-admin__heading">Google Maps</h3>
-        <h4 class="ot-admin__heading-description">A Google Maps API key is required for this plugin to function.</h4>
-        <input size="45" type="text" name="ontap_api_key" value="<?php echo esc_attr(get_option('ontap_api_key')); ?>" />
-    </section>
 
-    <table class="form-table">
-        <tr valign="top">
-            <td>
-                <?php submit_button(); ?>
-            </td>
-        </tr>
-    </table>
+    <form method="post" action="options.php" id="dp-admin-form">
+
+        <section class="ot-section">
+            <h3 class="ot-admin__heading">Google Maps</h3>
+            <h4 class="ot-admin__heading-description">A Google Maps API key is required for this plugin to function.</h4>
+            <input size="45" type="text" name="ontap_api_key" value="<?php echo esc_attr(get_option('ontap_api_key')); ?>" />
+        </section>
+
+        <table class="form-table">
+            <tr valign="top">
+                <td>
+                    <?php submit_button(); ?>
+                </td>
+            </tr>
+        </table>
+        
+    </form>
     
 </div>
