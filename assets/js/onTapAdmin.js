@@ -19,6 +19,12 @@ var OnTap = OnTap || {};
         Self.elementObjects.addNewForm = $('#on-tap-add-new');
 
         if (Self.elementObjects.addNewForm.length) {
+            Self.elementObjects.newTitle = Self.elementObjects.addNewForm.find("[name='loc-title']");
+            Self.elementObjects.newAdd1 = Self.elementObjects.addNewForm.find("[name='loc-address1']");
+            Self.elementObjects.newAdd2 = Self.elementObjects.addNewForm.find("[name='loc-address2']");
+
+
+
             Self.elementObjects.addNewForm.on('submit', function(e) {
                 e.preventDefault();
                 Self.addNewLocation();
@@ -27,7 +33,7 @@ var OnTap = OnTap || {};
     };
 
     Self.addNewLocation = function() {
-        console.log('form submitted');
+        console.log(Self.elementObjects.newTitle.value);
     };
 
 })(jQuery, OnTap);
