@@ -69,7 +69,7 @@ add_action('admin_menu','ontapAdmin');
 
 
 //Create tables IMPORTANT
-function ontap_dontap_install () {
+function ontap_data_install () {
     global $wpdb;
     global $ontap_dontap_version;
 
