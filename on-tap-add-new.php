@@ -24,28 +24,28 @@ global $ontap_dontap_version;
             <div class="loc">
                 <div class="loc__container">
                     <label for="loc-title" class="loc__label">Location Name</label>
-                    <input class="loc__input loc__input--text" name="loc-title" value="">
+                    <input class="loc__input loc__input--text loc-title" name="loc-title" value="">
                 </div>
 
                 <div class="loc__container">
                     <h2 class="loc__section-title">Address</h2>
                     <label for="loc-address1" class="loc__label">Street Address 1</label>
-                    <input class="loc__input loc__input--text" name="loc-address1" value="">
+                    <input class="loc__input loc__input--text loc-address1" name="loc-address1" value="">
                 </div>
 
                 <div class="loc__container">
                     <label for="loc-address2" class="loc__label">Street Address 2</label>
-                    <input class="loc__input loc__input--text" name="loc-address2" value="">
+                    <input class="loc__input loc__input--text loc-address2" name="loc-address2" value="">
                 </div>
 
                 <div class="loc__container loc__container--third">
                     <label for="loc-city" class="loc__label">City</label>
-                    <input class="loc__input loc__input--text" name="loc-city" value="">
+                    <input class="loc__input loc__input--text loc-city" name="loc-city" value="">
                 </div>
 
                 <div class="loc__container loc__container--third">
                     <label for="loc-state" class="loc__label">City</label>
-                    <select name="loc-state" class="loc__input loc__input--select">
+                    <select name="loc-state" class="loc__input loc__input--select loc-state">
                         <option value="AL">Alabama</option>
                         <option value="AK">Alaska</option>
                         <option value="AZ">Arizona</option>
@@ -102,7 +102,7 @@ global $ontap_dontap_version;
 
                 <div class="loc__container loc__container--third">
                     <label for="loc-zip" class="loc__label">ZIP</label>
-                    <input class="loc__input loc__input--text" name="loc-zip" value="">
+                    <input class="loc__input loc__input--text loc-zip" name="loc-zip" value="">
                 </div>
 
                 <div class="loc__container loc__container--third">
