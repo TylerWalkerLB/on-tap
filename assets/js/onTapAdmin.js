@@ -16,7 +16,18 @@ var OnTap = OnTap || {};
     Self.Vars.adminUrl = ot_ajax.admin_url;
 
     Self.init = function() {
-        console.log('admin script fired');
+        Self.elementObjects.addNewForm = $('#on-tap-add-new');
+
+        if (Self.elementObjects.addNewForm.length) {
+            Self.elementObjects.addNewForm.on('submit', function(e) {
+                e.preventDefault();
+                Self.addNewLocation();
+            });
+        }
+    };
+
+    Self.addNewLocation = function() {
+        console.log('form submitted');
     };
 
 })(jQuery, OnTap);
