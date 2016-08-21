@@ -72,6 +72,9 @@ var OnTap = OnTap || {};
             }
         });
 
+        console.log(locLat);
+        console.log(locLng);
+
         var data = {
             'action': 'ontap_add_edit',
             'which' : addEdit,
@@ -87,7 +90,9 @@ var OnTap = OnTap || {};
 
         $.post(Self.Vars.ajaxUrl, data, function (response) {
             if (response) {
-                window.location.assign(Self.Vars.adminUrl + 'admin.php?page=on-tap%2Fon-tap-locations.php&success=true');
+                //window.location.assign(Self.Vars.adminUrl + 'admin.php?page=on-tap%2Fon-tap-locations.php&success=true');
+                console.log(locLat);
+                console.log(locLng);
             } else {
                 alert('didnt work');
             }
