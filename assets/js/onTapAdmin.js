@@ -26,11 +26,17 @@ var OnTap = OnTap || {};
             Self.elementObjects.newCity = Self.elementObjects.addNewForm.find('.loc-city');
             Self.elementObjects.newState = Self.elementObjects.addNewForm.find('.loc-state');
             Self.elementObjects.newZip = Self.elementObjects.addNewForm.find('.loc-zip');
+            Self.elementObjects.submitButton = Self.elementObjects.addNewForm.find('.loc__submit');
 
-            Self.elementObjects.addNewForm.on('submit', function(e) {
+            // Self.elementObjects.addNewForm.on('submit', function(e) {
+            //     e.preventDefault();
+            //     Self.addEditNewLocation();
+            // });
+
+            Self.elementObjects.submitButton.on('click', function(e) {
                 e.preventDefault();
                 Self.addEditNewLocation();
-            });
+            })
         }
     };
 
