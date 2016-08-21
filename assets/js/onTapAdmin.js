@@ -69,35 +69,29 @@ var OnTap = OnTap || {};
             if (status == google.maps.GeocoderStatus.OK) {
                 locLat = results[0].geometry.location.lat();
                 locLng = results[0].geometry.location.lng();
+
+                var data = {
+                    'action': 'ontap_add_edit',
+                    'which' : addEdit,
+                    'title' : title,
+                    'addr1' : addr1,
+                    'addr2' : addr2,
+                    'city'  : city,
+                    'state' : state,
+                    'zip'   : zip,
+                    'lat'   : locLat,
+                    'lng'   : locLng
+                };
+
+                $.post(Self.Vars.ajaxUrl, data, function (response) {
+                    if (response) {
+                        window.location.assign(Self.Vars.adminUrl + 'admin.php?page=on-tap%2Fon-tap-locations.php&success=true');
+                    } else {
+                        alert('didnt work');
+                    }
+                });
             }
         });
-
-        console.log(locLat);
-        console.log(locLng);
-
-        var data = {
-            'action': 'ontap_add_edit',
-            'which' : addEdit,
-            'title' : title,
-            'addr1' : addr1,
-            'addr2' : addr2,
-            'city'  : city,
-            'state' : state,
-            'zip'   : zip,
-            'lat'   : locLat,
-            'lng'   : locLng
-        };
-
-        $.post(Self.Vars.ajaxUrl, data, function (response) {
-            if (response) {
-                //window.location.assign(Self.Vars.adminUrl + 'admin.php?page=on-tap%2Fon-tap-locations.php&success=true');
-                console.log(locLat);
-                console.log(locLng);
-            } else {
-                alert('didnt work');
-            }
-        });
-
 
     };
 
