@@ -28,15 +28,15 @@ var OnTap = OnTap || {};
             Self.elementObjects.newZip = Self.elementObjects.addNewForm.find('.loc-zip');
             Self.elementObjects.submitButton = Self.elementObjects.addNewForm.find('.loc__submit');
 
-            // Self.elementObjects.addNewForm.on('submit', function(e) {
-            //     e.preventDefault();
-            //     Self.addEditNewLocation();
-            // });
-
-            Self.elementObjects.submitButton.on('click', function(e) {
-                console.log('button clicked');
+            Self.elementObjects.addNewForm.on('submit', function(e) {
+                e.preventDefault();
                 Self.addEditNewLocation();
             });
+
+            // Self.elementObjects.submitButton.on('click', function(e) {
+            //     console.log('button clicked');
+            //     Self.addEditNewLocation();
+            // });
         }
     };
 
