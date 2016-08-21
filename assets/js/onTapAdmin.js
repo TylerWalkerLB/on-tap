@@ -77,7 +77,7 @@ var OnTap = OnTap || {};
 
         $.post(Self.Vars.ajaxUrl, data, function (response) {
             if (response) {
-                window.location.assign(Self.Vars.adminUrl + 'admin.php?admin.php?page=on-tap%2Fon-tap-locations.php&success=true')
+                window.location.assign(Self.Vars.adminUrl + 'admin.php?page=on-tap%2Fon-tap-locations.php&success=true');
             } else {
                 alert('didnt work');
             }
