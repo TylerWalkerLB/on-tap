@@ -144,7 +144,7 @@ function ontap_add_edit() {
     $lat    = $_POST['lat'];
     $lng    = $_POST['lng'];
 
-    if ($wpdb = 'new') {
+    if ($which == 'new') {
         if (
         $wpdb->query($wpdb->prepare(
             "INSERT INTO $table_name
