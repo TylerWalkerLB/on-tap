@@ -34,9 +34,9 @@ var OnTap = OnTap || {};
             // });
 
             Self.elementObjects.submitButton.on('click', function(e) {
-                e.preventDefault();
+                console.log('button clicked');
                 Self.addEditNewLocation();
-            })
+            });
         }
     };
 

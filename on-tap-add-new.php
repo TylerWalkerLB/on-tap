@@ -106,7 +106,7 @@ global $ontap_dontap_version;
                 </div>
 
                 <div class="loc__container loc__container--third">
-                    <button type="submit" class="loc__submit">Add Location</button>
+                    <button type="button" class="loc__submit">Add Location</button>
                 </div>
 
             </div>
