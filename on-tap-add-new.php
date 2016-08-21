@@ -20,7 +20,7 @@ global $ontap_dontap_version;
 
     <section class="ot-section">
 
-        <form id="on-tap-add-new">
+        <form class="on-tap-add-edit" data-which="new">
             <div class="loc">
                 <div class="loc__container">
                     <label for="loc-title" class="loc__label">Location Name</label>

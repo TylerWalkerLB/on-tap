@@ -92,9 +92,9 @@ function ontap_data_install () {
             location_address2 varchar(250) NULL,
             location_city varchar(150) NULL,
             location_state varchar(150) NULL,
-            location_zip varchar(5) NULL,
-            location_lat varchar(100) NULL,
-            location_lng varchar(100) NULL,
+            location_zip int(5) NULL,
+            location_lat float(10,6) NULL,
+            location_lng float(10,6) NULL,
             on_tap int(1) NOT NULL DEFAULT 1,
             deleted int(1) NOT NULL DEFAULT 1,
             UNIQUE KEY id (id)
@@ -118,7 +118,7 @@ function ontap_shortcode($atts) {
 
     global $wpdb;
 
-    $table_name = $wpdb->prefix.'on_tap';
+    $table_name = $wpdb->prefix.'on_tap_locations';
 
 
 
@@ -129,7 +129,44 @@ function ontap_shortcode($atts) {
 add_shortcode('ontap','ontap_shortcode');
 
 
-function ontap_add_new() {
+function ontap_add_edit() {
+    global $wpdb;
+
+    $table_name = $wpdb->prefix.'on_tap_locations';
+
+    $which  = $_POST['which'];
+    $title  = $_POST['title'];
+    $addr1  = $_POST['addr1'];
+    $addr2  = $_POST['addr2'];
+    $city   = $_POST['city'];
+    $state  = $_POST['state'];
+    $zip    = $_POST['zip'];
+    $lat    = $_POST['lat'];
+    $lng    = $_POST['lng'];
+
+    if ($wpdb = 'new') {
+        if (
+        $wpdb->query($wpdb->prepare(
+            "INSERT INTO $table_name
+    (location_name, location_address1, location_address2, location_city, location_state, location_zip, location_lat, location_lng)
+    VALUES ()",
+            array(
+                $title,
+                $addr1,
+                $addr2,
+                $city,
+                $state,
+                $zip,
+                $lat,
+                $lng
+            )
+        ))
+        ) {
+            echo true;
+        } else {
+            echo false;
+        }
+    }
 
 }
-add_action('wp_ajax_ontap_add_new','ontap_add_new');
+add_action('wp_ajax_ontap_add_edit','ontap_add_edit');
