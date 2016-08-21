@@ -63,6 +63,8 @@ var OnTap = OnTap || {};
 
         address += city + ', ' + state + ' ' + zip;
 
+        console.log(address);
+
         Self.Vars.geocoder.geocode({ 'address': address }, function (results, status) {
             if (status == google.maps.GeocoderStatus.OK) {
                 locLat = results[0].geometry.location.lat();
