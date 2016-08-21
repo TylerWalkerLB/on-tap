@@ -149,7 +149,7 @@ function ontap_add_edit() {
         $wpdb->query($wpdb->prepare(
             "INSERT INTO $table_name
     (location_name, location_address1, location_address2, location_city, location_state, location_zip, location_lat, location_lng)
-    VALUES ()",
+    VALUES (%s, %s, %s, %s, %s, %d, %f, %f)",
             array(
                 $title,
                 $addr1,
