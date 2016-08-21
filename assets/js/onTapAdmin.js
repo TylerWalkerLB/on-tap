@@ -52,6 +52,8 @@ var OnTap = OnTap || {};
         var locLat;
         var locLng;
 
+        var address = addr1;
+
         if (addr2 != '' || addr2 != null) {
             address += ' ' + addr2 + ', ';
         }
