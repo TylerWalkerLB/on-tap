@@ -168,5 +168,7 @@ function ontap_add_edit() {
         }
     }
 
+    die();
+
 }
 add_action('wp_ajax_ontap_add_edit','ontap_add_edit');

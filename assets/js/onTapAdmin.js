@@ -79,7 +79,7 @@ var OnTap = OnTap || {};
             if (response) {
                 window.location.assign(Self.Vars.adminUrl + 'admin.php?admin.php?page=on-tap%2Fon-tap-locations.php&success=true')
             } else {
-
+                alert('didnt work');
             }
         });
 
