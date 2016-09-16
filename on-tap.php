@@ -124,6 +124,8 @@ function ontap_shortcode($atts) {
 
     ?>
 
+    <h3>Find Bitter Sisters beer at your local bar!</h3>
+
     <?php
 }// end ontap_shortcode
 add_shortcode('ontap','ontap_shortcode');
