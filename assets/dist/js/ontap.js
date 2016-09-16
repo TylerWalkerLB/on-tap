@@ -1,0 +1,1 @@
+var OnTap=OnTap||{};!function(a,b){var c=b.onTapMap={};c.elementObjects={},c.Vars={},c.init=function(){c.elementObjects.mapContainer=document.getElementById("ot-map"),c.elementObjects.mapContainer.length&&console.log(c.elementObjects.mapContainer)}}(jQuery,OnTap),jQuery(document).ready(function(){OnTap.onTapMap.init()});
