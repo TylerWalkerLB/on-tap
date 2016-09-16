@@ -16,9 +16,11 @@ var OnTap = OnTap || {};
 
     Self.init = function() {
 
+        console.log('init started');
         Self.elementObjects.mapContainer = document.getElementById('ot-map');
+        Self.elementObjects.$mapExists = $('#ot-map');
 
-        if (Self.elementObjects.mapContainer.length > 0) {
+        if (Self.elementObjects.$mapExists.length) {
             console.log('element exists');
             Self.elementObjects.map = new google.maps.Map(Self.elementObjects.mapContainer, {
                 center: {lat: -34.397, lng: 150.644},

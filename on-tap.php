@@ -117,6 +117,8 @@ register_activation_hook(__FILE__,'ontap_data_install');
 // This function will add a shortcode
 function ontap_shortcode($atts) {
 
+    require_once(ABSPATH.'wp-config.php');
+    require_once(ABSPATH.'wp-load.php');
     global $wpdb;
 
     $table_name = $wpdb->prefix.'on_tap_locations';
