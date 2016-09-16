@@ -19,6 +19,8 @@ $ontap_dontap_version = '1.0.0';
 function ontap_scripts() {
     $googleAPIKey = get_option('ontap_api_key');
 
+    wp_enqeue_style('on-tap-styles', plugin_dir_url(__FILE__).'assets/dist/css/ontap.css');
+
     wp_register_script('google-maps-api', 'https://maps.googleapis.com/maps/api/js?key=' . $googleAPIKey, array(), '1.0.0', true);
     wp_register_script('on-tap-map', plugin_dir_url(__FILE__).'assets/dist/js/ontap.js', array(), '1.0.0', true);
 
