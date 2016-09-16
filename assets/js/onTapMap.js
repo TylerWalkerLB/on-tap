@@ -19,6 +19,7 @@ var OnTap = OnTap || {};
         Self.elementObjects.mapContainer = document.getElementById('ot-map');
 
         if (Self.elementObjects.mapContainer.length > 0) {
+            console.log('element exists');
             Self.elementObjects.map = new google.maps.Map(Self.elementObjects.mapContainer, {
                 center: {lat: -34.397, lng: 150.644},
                 zoom: 8
