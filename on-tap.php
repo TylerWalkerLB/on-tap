@@ -24,7 +24,7 @@ function ontap_scripts() {
 
     wp_enqueue_script('google-maps-api');
     wp_enqueue_script('on-tap-map');
-    
+
     wp_enqueue_style( 'ot-pres-styles', plugin_dir_url(__FILE__).'assets/dist/css/ontap.css');
 
 }
