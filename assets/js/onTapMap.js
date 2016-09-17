@@ -15,17 +15,23 @@ var OnTap = OnTap || {};
     Self.Vars = {};
 
     Self.init = function() {
-
-        console.log('init started');
         Self.elementObjects.mapContainer = document.getElementById('ot-map');
         Self.elementObjects.$mapExists = $('#ot-map');
 
         if (Self.elementObjects.$mapExists.length) {
-            console.log('element exists');
+            Self.Vars.ajaxUrl = ot_ajax.ajaxUrl;
+            Self.Vars.adminUrl = ot_ajax.admin_url;
+            Self.Vars.locations = ot_ajax.locations;
+            console.log(Self.Vars.locations);
+
             Self.elementObjects.map = new google.maps.Map(Self.elementObjects.mapContainer, {
                 center: {lat: -34.397, lng: 150.644},
                 zoom: 8
             });
+
+            for (var i=0; i < Self.Vars.locations.length; i++) {
+
+            }
 
         }
     }

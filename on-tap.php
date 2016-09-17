@@ -17,6 +17,16 @@ $ontap_dontap_version = '1.0.0';
 
 //This action will add in the correct scripts for using front-end
 function ontap_scripts() {
+    global $wpdb;
+    $table_name = $wpdb->prefix . "on_tap_locations";
+
+    $locations = $wpdb->get_results(
+        "
+        SELECT *
+        FROM $table_name
+        "
+    );
+
     $googleAPIKey = get_option('ontap_api_key');
 
     wp_register_script('google-maps-api', 'https://maps.googleapis.com/maps/api/js?key=' . $googleAPIKey, array(), '1.0.0', true);
@@ -27,6 +37,14 @@ function ontap_scripts() {
 
     wp_enqueue_style( 'ot-pres-styles', plugin_dir_url(__FILE__).'assets/dist/css/ontap.css');
 
+    $adminUrl = get_admin_url();
+    wp_localize_script('on-tap-map','ot_ajax',
+        array(
+            'ajaxUrl'   => admin_url('admin-ajax.php'),
+            'admin_url' => $adminUrl,
+            'locations' => $locations
+        )
+    );
 }
 add_action('wp_enqueue_scripts','ontap_scripts');
 
