@@ -28,7 +28,7 @@ var OnTap = OnTap || {};
 
             Self.elementObjects.map = new google.maps.Map(Self.elementObjects.mapContainer, {
                 center: {lat: 32.954709, lng: -96.847184},
-                zoom: 8
+                zoom: 10
             });
 
             Self.Vars.locations.forEach( function(loc, index) {
