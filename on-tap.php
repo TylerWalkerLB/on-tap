@@ -24,6 +24,7 @@ function ontap_scripts() {
         "
         SELECT *
         FROM $table_name
+        WHERE on_tap = 1 && deleted = 1
         "
     );
 
