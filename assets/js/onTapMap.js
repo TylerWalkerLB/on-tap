@@ -35,7 +35,7 @@ var OnTap = OnTap || {};
                 Self.Vars.markers = new google.maps.Marker({
                     map: Self.elementObjects.map,
                     position: new google.maps.LatLng(loc['location_lat'], loc['location_lng']),
-                    label: index
+                    label: String(index)
                 });
 
             });
