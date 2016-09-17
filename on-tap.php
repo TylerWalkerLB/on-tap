@@ -162,7 +162,7 @@ function ontap_shortcode($atts) {
             <?php foreach($locations as $loc): ?>
                 <div class="ot-locs__container">
                     <h3 class="ot-locs__name">
-                        <?php $loc->location_name; ?>
+                        <?php $loc['location_name']; ?>
                     </h3>
                 </div>
             <?php endforeach; ?>
