@@ -31,10 +31,7 @@ var OnTap = OnTap || {};
             Self.Vars.locations.forEach( function(loc) {
                 Self.Vars.markers = new google.maps.Marker({
                     map: Self.elementObjects.map,
-                    position: {
-                        lat: loc['location_lat'],
-                        lng: loc['location_lng']
-                    }
+                    position: new google.maps.LatLng(loc['location_lat'], loc['location_lng'])
                 });
             });
         }
