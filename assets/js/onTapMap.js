@@ -39,7 +39,7 @@ var OnTap = OnTap || {};
                 });
 
                 locationName = loc['location_name'];
-                infoContent = '<h6>' + loc["location_name"] +'</h6>';
+                infoContent = '<h6>' + locationName +'</h6>';
 
                 Self.Vars.infowindow.setContent(infoContent);
                 Self.Vars.infowindow.open(Self.elementObjects.map, this);
