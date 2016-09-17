@@ -164,6 +164,13 @@ function ontap_shortcode($atts) {
                     <h3 class="ot-locs__name">
                         <?php echo $loc->location_name; ?>
                     </h3>
+                    <p class="ot-locs__address1"><?php echo $loc->location_address1; ?></p>
+                    <?php if (!empty($loc->location_address2)): ?>
+                        <p class="ot-locs__address2"><?php echo $loc->location_address2; ?></p>
+                    <?php endif; ?>
+                    <p class="ot-locs__address3">
+                        <?php echo $loc->location_city . ', ' . $loc->location_state . ' ' . $loc->location_zip; ?>
+                    </p>
                 </div>
             <?php endforeach; ?>
         </section>

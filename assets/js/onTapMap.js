@@ -34,8 +34,7 @@ var OnTap = OnTap || {};
             Self.Vars.locations.forEach( function(loc, index) {
                 var marker = new google.maps.Marker({
                     map: Self.elementObjects.map,
-                    position: new google.maps.LatLng(loc.location_lat, loc.location_lng),
-                    label: String(index)
+                    position: new google.maps.LatLng(loc.location_lat, loc.location_lng)
                 });
                 Self.Vars.markers.push(marker);
 
