@@ -22,7 +22,7 @@ var OnTap = OnTap || {};
             Self.Vars.ajaxUrl = ot_ajax.ajaxUrl;
             Self.Vars.adminUrl = ot_ajax.admin_url;
             Self.Vars.locations = ot_ajax.locations;
-            Self.Vars.allInfoWindows = [];
+            Self.Vars.markers = [];
 
             Self.Vars.infowindow = new google.maps.InfoWindow();
 
@@ -32,12 +32,20 @@ var OnTap = OnTap || {};
             });
 
             Self.Vars.locations.forEach( function(loc, index) {
-                Self.Vars.markers = new google.maps.Marker({
+                var marker = new google.maps.Marker({
                     map: Self.elementObjects.map,
                     position: new google.maps.LatLng(loc['location_lat'], loc['location_lng']),
                     label: String(index)
                 });
+                Self.Vars.markers.push(marker);
 
+                google.maps.event.addListener(marker, 'click', (function(marker, i) {
+                    return function() {
+                        var infoContent = '<h6>'+ loc.location_name +'</h6>';
+                        Self.Vars.infowindow.setContent(infoContent);
+                        Self.Vars.infowindow.open(Self.elementObjects.map, marker);
+                    }
+                })(marker, i));
             });
 
 
