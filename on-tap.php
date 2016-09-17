@@ -143,7 +143,13 @@ function ontap_shortcode($atts) {
 
     $table_name = $wpdb->prefix.'on_tap_locations';
 
-
+    $locations = $wpdb->get_results(
+        "
+        SELECT *
+        FROM $table_name
+        WHERE on_tap = 1 && deleted = 1
+        "
+    );
 
     ?>
 
@@ -151,6 +157,16 @@ function ontap_shortcode($atts) {
 
     <div class="ot-map__container">
         <div class="ot-map" id="ot-map"></div>
+
+        <section class="ot-locs">
+            <?php foreach($locations as $loc): ?>
+                <div class="ot-locs__container">
+                    <h3 class="ot-locs__name">
+                        <?php $loc->location_name; ?>
+                    </h3>
+                </div>
+            <?php endforeach; ?>
+        </section>
     </div>
 
     <?php

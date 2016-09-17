@@ -6,3 +6,47 @@
 .ot-map__container {
     margin-top: 20px;
 }
+
+.ot-location,
+.ot-location * {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.ot-location {
+    margin-top: 10px;
+}
+
+.ot-location__name {
+    margin-top: 0;
+    font-size: 16px;
+    font-weight: 700;
+    position: relative;
+    padding-bottom: 6px;
+
+    &:after {
+        content: '';
+        display: block;
+        height: 2px;
+        width: 50px;
+        background: #1D212D;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+    }
+}
+
+.ot-location__address1 {
+    margin-top: 6px;
+    font-size: 14px;
+}
+
+.ot-location__address2 {
+    margin-top: 3px;
+    font-size: 14px;
+}
+
+.ot-location__address3 {
+    margin-top: 3px;
+}

@@ -41,7 +41,7 @@ var OnTap = OnTap || {};
 
                 google.maps.event.addListener(marker, 'click', (function(marker) {
                     return function() {
-                        var address2;
+                        var address2 = '';
                         if (loc.location_address2.length > 0) {
                             address2 = '<p class="ot-location__address2">'+ loc.location_address2 +'</p>';
                         }
