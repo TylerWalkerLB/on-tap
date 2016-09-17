@@ -22,17 +22,21 @@ var OnTap = OnTap || {};
             Self.Vars.ajaxUrl = ot_ajax.ajaxUrl;
             Self.Vars.adminUrl = ot_ajax.admin_url;
             Self.Vars.locations = ot_ajax.locations;
-            console.log(Self.Vars.locations);
 
             Self.elementObjects.map = new google.maps.Map(Self.elementObjects.mapContainer, {
                 center: {lat: -34.397, lng: 150.644},
                 zoom: 8
             });
 
-            for (var i=0; i < Self.Vars.locations.length; i++) {
-
-            }
-
+            Self.Vars.locations.forEach( function(loc) {
+                Self.Vars.markers = new google.maps.Marker({
+                    map: Self.elementObjects.map,
+                    position: {
+                        lat: loc['location_lat'],
+                        lng: loc['location_lng']
+                    }
+                });
+            });
         }
     }
 
