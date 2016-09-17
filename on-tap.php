@@ -153,7 +153,8 @@ function ontap_shortcode($atts) {
 
     ?>
 
-    <h3>Find Bitter Sisters beer at your local bar!</h3>
+    <h1>Find Bitter Sisters beer at your local bar!</h1>
+    <hr>
 
     <div class="ot-map__container">
         <div class="ot-map" id="ot-map"></div>
