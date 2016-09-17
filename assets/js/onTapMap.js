@@ -38,10 +38,10 @@ var OnTap = OnTap || {};
                     label: index
                 });
 
-                infoContent = '<h6>' + loc.locationName +'</h6>';
+                infoContent = '<h6>' + loc["locationName"] +'</h6>';
 
                 Self.Vars.infowindow.setContent(infoContent);
-                Self.Vars.infowindow.open(map, this);
+                Self.Vars.infowindow.open(Self.elementObjects.map, this);
                 Self.Vars.allInfoWindows.push(Self.Vars.markers);
 
             });
