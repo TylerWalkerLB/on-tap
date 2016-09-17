@@ -151,8 +151,6 @@ function ontap_shortcode($atts) {
         "
     );
 
-    $allLocations = json_decode($locations);
-
     ?>
 
     <h3>Find Bitter Sisters beer at your local bar!</h3>
@@ -161,10 +159,10 @@ function ontap_shortcode($atts) {
         <div class="ot-map" id="ot-map"></div>
 
         <section class="ot-locs">
-            <?php foreach($allLocations as $loc): ?>
+            <?php foreach($locations as $loc): ?>
                 <div class="ot-locs__container">
                     <h3 class="ot-locs__name">
-
+                        <?php echo $loc->location_name; ?>
                     </h3>
                 </div>
             <?php endforeach; ?>
