@@ -68,7 +68,18 @@
 .ot-locs__container {
     padding-top: 10px;
     padding-bottom: 10px;
+    padding-left: 10px;
+    position: relative;
     border-bottom: 1px solid #eaeaea;
+    counter-increment: locs;
+
+    &:before {
+        content: counter(locs, ".");
+        font-size: 20px;
+        position: absolute;
+        top: 10px;
+        left: 0;
+    }
 
     &:last-of-type {
         border-bottom: none;
