@@ -39,13 +39,13 @@ var OnTap = OnTap || {};
                 });
                 Self.Vars.markers.push(marker);
 
-                google.maps.event.addListener(marker, 'click', (function(marker, i) {
+                google.maps.event.addListener(marker, 'click', (function(marker) {
                     return function() {
                         var infoContent = '<h6>'+ loc.location_name +'</h6>';
                         Self.Vars.infowindow.setContent(infoContent);
                         Self.Vars.infowindow.open(Self.elementObjects.map, marker);
                     }
-                })(marker, i));
+                })(marker));
             });
 
 
