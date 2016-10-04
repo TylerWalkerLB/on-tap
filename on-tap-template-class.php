@@ -1,13 +1,4 @@
 <?php
-/*
-Plugin Name: On Tap
-Plugin URI: http://www.bittersistersbrewery.com
-Description: This plugin will be used to store and display all locations that Bitter Sisters is currently on tap at
-Version: 1.0.0
-Author: Tyler Walker
-Author URI: http://www.chadtylerwalker.com
-License: GPL2
-*/
 
 class PageTemplater {
 
