@@ -28,7 +28,7 @@ get_header(); ?>
                 }
             }
             ?>
-            <section class="image preload" style="background-image: url(<?php echo esc_attr( $featured_image ); ?>);background-size:cover; background-position: center center; background-repeat: no-repeat;">
+            <section class="image preload ot-map-section" style="background-image: url(<?php echo esc_attr( $featured_image ); ?>);background-size:cover; background-position: center center; background-repeat: no-repeat;">
                 <div class="ot-map" id="ot-map"></div>
             </section>
             <section class="content">
