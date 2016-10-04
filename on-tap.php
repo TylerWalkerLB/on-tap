@@ -15,7 +15,7 @@ $ontapVersion = '1.0.0';
 global $ontap_dontap_version;
 $ontap_dontap_version = '1.0.0';
 
-require(plugin_dir_url(__FILE__).'on-tap-template-class.php');
+require('on-tap-template-class.php');
 //PageTemplater::get_instance();
 
 //This action will add in the correct scripts for using front-end
