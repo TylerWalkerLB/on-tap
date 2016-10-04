@@ -72,8 +72,8 @@
         content: '';
         display: inline-block;
         vertical-align: middle;
-        height: 6px;
-        width: 6px;
+        height: 8px;
+        width: 8px;
         border-radius: 50%;
     }
 
@@ -96,15 +96,21 @@
     text-decoration: none;
     transition: background 120ms linear;
     color: #ffffff;
-    padding: 3px 4px;
+    padding: 5px 8px;
     margin: 0 1px;
     border-radius: 3px;
+
+    &:hover,
+    &:focus,
+    &:active {
+        color: #ffffff;
+    }
 }
 
 .ot-table__button--edit {
     background: #008214;
 
     &:hover {
-        background: #00ad1b;
+        background: #009218;
     }
 }
