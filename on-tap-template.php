@@ -28,11 +28,8 @@ get_header(); ?>
                 }
             }
             ?>
-            <section class="image preload <?php echo esc_attr( $show_title_shadow ); ?>" data-image="<?php echo esc_attr( $featured_image ); ?>">
-                <?php if($show_title){ ?>
-                    <h1><?php the_title(); ?></h1>
-                    <p><?php echo get_the_excerpt(); ?></p>
-                <?php } ?>
+            <section class="image preload" style="background-image: url(<?php echo esc_attr( $featured_image ); ?>);background-size:cover; background-position: center center; background-repeat: no-repeat;">
+                <div class="ot-map" id="ot-map"></div>
             </section>
             <section class="content">
                 <?php echo the_content(); ?>

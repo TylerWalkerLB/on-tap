@@ -160,7 +160,6 @@ function ontap_shortcode($atts) {
     <hr>
 
     <div class="ot-map__container">
-        <div class="ot-map" id="ot-map"></div>
 
         <section class="ot-locs">
             <?php foreach($locations as $loc): ?>
