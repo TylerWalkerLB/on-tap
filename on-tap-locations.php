@@ -56,7 +56,7 @@ $locations = $wpdb->get_results(
                             <?php echo ($loc->on_tap) ? 'Enabled' : 'Disabled'; ?>
                         </span>
                     </td>
-                    <td class="ot-table__cell">
+                    <td class="ot-table__cell ot-table__cell--buttons">
                         <a class="ot-table__button ot-table__button--edit" href="<?php echo admin_url(); ?>admin.php?page=on-tap%2Fon-tap-edit.php&loc=<?php $loc->id; ?>">
                             Edit
                         </a>
