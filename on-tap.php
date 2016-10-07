@@ -27,7 +27,7 @@ function ontap_scripts() {
         "
         SELECT *
         FROM $table_name
-        WHERE on_tap = 1 && deleted = 1
+        WHERE on_tap = 1 AND deleted = 1
         "
     );
 
@@ -151,7 +151,7 @@ function ontap_shortcode($atts) {
         "
         SELECT *
         FROM $table_name
-        WHERE on_tap = 1 && deleted = 1
+        WHERE on_tap = 1 AND deleted = 1
         "
     );
 

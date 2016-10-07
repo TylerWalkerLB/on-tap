@@ -4,6 +4,7 @@ global $wpdb;
 global $ontap_dontap_version;
 
 $locId = 1;
+$table_name = $wpdb->prefix.'on_tap_locations';
 
 if (isset($_GET['loc'])) {
     $locId = $_GET['loc'];
@@ -15,7 +16,7 @@ $location = $wpdb->get_results(
     "
     SELECT *
     FROM $table_name
-    WHERE id = '$locId' && deleted = 1
+    WHERE id = '$locId' AND deleted = 1
     "
 );
 
