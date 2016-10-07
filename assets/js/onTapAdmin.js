@@ -27,6 +27,8 @@ var OnTap = OnTap || {};
             Self.elementObjects.newState = Self.elementObjects.addNewForm.find('.loc-state');
             Self.elementObjects.newZip = Self.elementObjects.addNewForm.find('.loc-zip');
             Self.elementObjects.submitButton = Self.elementObjects.addNewForm.find('.loc__submit');
+            Self.elementObjects.locId = Self.elementObjects.addNewForm.find('.loc-id');
+            Self.elementObjects.onTap = Self.elementObjects.addNewForm.find('.loc-tap');
 
             Self.elementObjects.addNewForm.on('submit', function(e) {
                 e.preventDefault();
@@ -41,6 +43,10 @@ var OnTap = OnTap || {};
     };
 
     Self.addEditNewLocation = function() {
+        var locLat;
+        var locLng;
+        var onTap = 1;
+        var locId;
         var title = Self.elementObjects.newTitle.val();
         var addr1 = Self.elementObjects.newAdd1.val();
         var addr2 = Self.elementObjects.newAdd2.val();
@@ -49,8 +55,12 @@ var OnTap = OnTap || {};
         var zip = Self.elementObjects.newZip.val();
         var addEdit = Self.elementObjects.addNewForm.data('which');
 
-        var locLat;
-        var locLng;
+        if (Self.elementObjects.locId.length) {
+            locId = Self.elementObjects.locId.val();
+        }
+        if (Self.elementObjects.onTap.length) {
+            onTap = Self.elementObjects.onTap.val();
+        }
 
         var address = addr1;
 
@@ -62,8 +72,6 @@ var OnTap = OnTap || {};
         }
 
         address += city + ', ' + state + ' ' + zip;
-
-        console.log(address);
 
         Self.Vars.geocoder.geocode({ 'address': address }, function (results, status) {
             if (status == google.maps.GeocoderStatus.OK) {
@@ -80,7 +88,9 @@ var OnTap = OnTap || {};
                     'state' : state,
                     'zip'   : zip,
                     'lat'   : locLat,
-                    'lng'   : locLng
+                    'lng'   : locLng,
+                    'locId' : locId,
+                    'onTap' : onTap
                 };
 
                 $.post(Self.Vars.ajaxUrl, data, function (response) {

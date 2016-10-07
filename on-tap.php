@@ -92,6 +92,7 @@ function ontapAdmin() {
     add_submenu_page('on-tap/on-tap-admin.php','on-tap/on-tap-admin.php','Settings', 'manage_options','on-tap/on-tap-admin.php');
     add_submenu_page('on-tap/on-tap-admin.php','Locations','Locations','manage_options','on-tap/on-tap-locations.php');
     add_submenu_page('on-tap/on-tap-admin.php','Add New','Add New','manage_options','on-tap/on-tap-add-new.php');
+    add_submenu_page(null,'Edit Location','Edit Location','manage_options','on-tap/on-tap-edit.php');
 }
 add_action('admin_menu','ontapAdmin');
 
@@ -198,6 +199,8 @@ function ontap_add_edit() {
     $zip    = $_POST['zip'];
     $lat    = $_POST['lat'];
     $lng    = $_POST['lng'];
+    $onTap  = $_POST['onTap'];
+    $locId  = $_POST['locId'];
 
     if ($which == 'new') {
         if (
@@ -216,6 +219,41 @@ function ontap_add_edit() {
                 $lng
             )
         ))
+        ) {
+            echo true;
+        } else {
+            echo false;
+        }
+    } elseif ($which == 'edit') {
+        if (
+        $wpdb->update(
+            $table_name,
+            array(
+                'location_name' => $title,
+                'location_address1' => $addr1,
+                'location_address2' => $addr2,
+                'location_city'     => $city,
+                'location_state'    => $state,
+                'location_zip'      => $zip,
+                'location_lat'      => $lat,
+                'location_lng'      => $lng,
+                'on_tap'            => $onTap
+            ),
+            array(
+                'id' => $locId
+            ),
+            array(
+                '%s',
+                '%s',
+                '%s',
+                '%s',
+                '%s',
+                '%d',
+                '%f',
+                '%f',
+                '%d'
+            )
+        )
         ) {
             echo true;
         } else {

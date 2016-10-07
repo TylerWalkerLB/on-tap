@@ -39,7 +39,7 @@ $locations = $wpdb->get_results(
             <?php foreach($locations as $loc): ?>
                 <tr class="ot-table__row">
                     <td class="ot-table__cell">
-                        <a class="ot-table__link" href="<?php echo admin_url(); ?>admin.php?page=on-tap%2Fon-tap-edit.php&loc=<?php $loc->id; ?>">
+                        <a class="ot-table__link" href="<?php echo admin_url(); ?>admin.php?page=on-tap%2Fon-tap-edit.php&loc=<?php echo $loc->id; ?>">
                             <?php echo $loc->location_name; ?>
                         </a>
                     </td>
@@ -57,7 +57,7 @@ $locations = $wpdb->get_results(
                         </span>
                     </td>
                     <td class="ot-table__cell ot-table__cell--buttons">
-                        <a class="ot-table__button ot-table__button--edit" href="<?php echo admin_url(); ?>admin.php?page=on-tap%2Fon-tap-edit.php&loc=<?php $loc->id; ?>">
+                        <a class="ot-table__button ot-table__button--edit" href="<?php echo admin_url(); ?>admin.php?page=on-tap%2Fon-tap-edit.php&loc=<?php echo $loc->id; ?>">
                             Edit
                         </a>
                     </td>
